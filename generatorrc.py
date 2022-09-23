@@ -18,6 +18,23 @@ with open("seznamRc.txt", "w", encoding="utf-8") as f:
             # get a random int in the range 6001010000 - 9930129999, the number is divisible by 11
             rc = divisible_random(6001010000,9930129999,11)
             print(rc)
+
+            rcyear = str(rc)
+            slice_year = slice(0, 2)
+            rcyear = rcyear[slice_year]
+
+            rcmonth = str(rc)
+            slice_month = slice(2, 4)
+            rcmonth = rcmonth[slice_month]
+
+            rcday = str(rc)
+            slice_day = slice(4, 6)
+            rcday = rcday[slice_day]
+
+
+            print(rcyear + "/" + rcmonth + "/" + rcday)
+
+
             f.write(str(rc)+ "\n")
 
 print("Zápis proběhl do soubru ./seznamRc.txt")
