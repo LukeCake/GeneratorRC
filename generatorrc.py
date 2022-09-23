@@ -36,10 +36,20 @@ with open("seznamRc.txt", "w", encoding="utf-8") as f:
                 if 0 < int(rcmonth) <= 12:
                     # print("Měsíc oK")
                     if 0 < int(rcday) <= 29:
-                        print("Podmínky OK, Zapisuji do souboru RČ: " + str(rc))
-                        counter = counter + 1
-                        #print(rcyear + "/" + rcmonth + "/" + rcday)
-                        f.write(str(rc) + "\n")
+                        rndmsexlist = [0, 50]
+                        if (random.choice(rndmsexlist)) != 0:
+                            print("\nNÁHODNÁ Žena měním RČ z " + str(rc))
+                            rc = rc + 50000000
+                            print("na " + str(rc))
+                            print("Podmínky OK, Zapisuji ŽENU do souboru - RČ: " + str(rc))
+                            counter = counter + 1
+                            # print(rcyear + "/" + rcmonth + "/" + rcday)
+                            f.write(str(rc) + "\n")
+                        else:
+                            print("\nPodmínky OK, Zapisuji MUŽE  do souboru - RČ: " + str(rc))
+                            counter = counter + 1
+                            #print(rcyear + "/" + rcmonth + "/" + rcday)
+                            f.write(str(rc) + "\n")
 
                     #else:
                         # print("Den není ok")
