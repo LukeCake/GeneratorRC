@@ -31,7 +31,7 @@ with open("seznamRc.txt", "w", encoding="utf-8") as f:
             slice_day = slice(4, 6)
             rcday = rcday[slice_day]
 
-            if 0 < int(rcyear) <21 or 45 < int(rcyear) < 99:
+            if 0 < int(rcyear) <21 or 53 < int(rcyear) < 99:
                 # print("Rok oK")
                 if 0 < int(rcmonth) <= 12:
                     # print("Měsíc oK")
