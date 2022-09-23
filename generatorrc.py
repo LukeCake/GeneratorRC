@@ -33,9 +33,9 @@ with open("seznamRc.txt", "w", encoding="utf-8") as f:
 
             if 0 < int(rcyear) <21 or 45 < int(rcyear) < 99:
                 # print("Rok oK")
-                if int(rcmonth) <= 12:
+                if 0 < int(rcmonth) <= 12:
                     # print("Měsíc oK")
-                    if int(rcday) <= 29:
+                    if 0 < int(rcday) <= 29:
                         print("Podmínky OK, Zapisuji do souboru RČ: " + str(rc))
                         counter = counter + 1
                         #print(rcyear + "/" + rcmonth + "/" + rcday)
