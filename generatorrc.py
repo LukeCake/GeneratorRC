@@ -11,13 +11,14 @@ def divisible_random(a,b,n):
     return result
 
 #input
+counter = 0
 outputs = int(input('Kolik rodných čísel chceš generovat?: '))
 
 with open("seznamRc.txt", "w", encoding="utf-8") as f:
-    for i in range(outputs):
+
+    while(counter < outputs):
             # get a random int in the range 6001010000 - 9930129999, the number is divisible by 11
-            rc = divisible_random(6001010000,9930129999,11)
-            print(rc)
+            rc = divisible_random(1000000000,9999999999,11)
 
             rcyear = str(rc)
             slice_year = slice(0, 2)
@@ -26,15 +27,30 @@ with open("seznamRc.txt", "w", encoding="utf-8") as f:
             rcmonth = str(rc)
             slice_month = slice(2, 4)
             rcmonth = rcmonth[slice_month]
-
             rcday = str(rc)
             slice_day = slice(4, 6)
             rcday = rcday[slice_day]
 
+            if 0 < int(rcyear) <21 or 45 < int(rcyear) < 99:
+                # print("Rok oK")
+                if int(rcmonth) <= 12:
+                    # print("Měsíc oK")
+                    if int(rcday) <= 29:
+                        print("Podmínky OK, Zapisuji do souboru RČ: " + str(rc))
+                        counter = counter + 1
+                        #print(rcyear + "/" + rcmonth + "/" + rcday)
+                        f.write(str(rc) + "\n")
 
-            print(rcyear + "/" + rcmonth + "/" + rcday)
+                    #else:
+                        # print("Den není ok")
+                    #else:
+                    # print("Měsíc není ok")
+                    #else:
+                # print("Rok není ok")
 
 
-            f.write(str(rc)+ "\n")
 
+
+
+    print("Celkem vygenerováno RČ: " + str(counter))
 print("Zápis proběhl do soubru ./seznamRc.txt")
